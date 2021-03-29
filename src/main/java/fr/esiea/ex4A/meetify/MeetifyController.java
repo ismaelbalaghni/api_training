@@ -21,10 +21,7 @@ public class MeetifyController {
     @GetMapping(path = "/api/matches", produces = MediaType.APPLICATION_JSON_VALUE)
     List<UserData> getMatchingUsers(@RequestParam(name = "userName", required = true) String name, @RequestParam(name = "userCountry", required = true) String country) {
         List<UserData> userList = List.of(
-            new UserData("Alberto", "berto45"),
-            new UserData("Adriana", "lonelywife"),
-            new UserData("Karim", "kakim"),
-            new UserData("Patrice", "roy45")
+            new UserData("Alberto", "berto45")
         );
         return userList;
     }
