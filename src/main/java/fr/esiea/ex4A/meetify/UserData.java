@@ -3,6 +3,7 @@ package fr.esiea.ex4A.meetify;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class UserData {
+    public final String userId;
     public final String email;
     public final String name;
     public final String twitter;
@@ -17,6 +18,7 @@ public class UserData {
         this.country = country;
         this.sex = sex;
         this.sexPref = sexPref;
+        this.userId = name.concat(country);
     }
 
     public UserData(String name, String twitter) {
@@ -26,17 +28,42 @@ public class UserData {
         this.sexPref = "";
         this.name = name;
         this.twitter = twitter;
+        this.userId = name.concat(country);
     }
 
     @Override
     public String toString() {
-        return "UserData{" +
-            "userEmail='" + email + '\'' +
-            ", userName='" + name + '\'' +
-            ", userTweeter='" + twitter + '\'' +
-            ", userCountry='" + country + '\'' +
-            ", userSex='" + sex + '\'' +
-            ", userSexPref='" + sexPref + '\'' +
+        return "{" +
+            "\"userEmail\":\"" + email + '"' +
+            ",\"userName\":\"" + name + '"' +
+            ",\"userTweeter\":\"" + twitter + '"' +
+            ",\"userCountry\":\"" + country + '"' +
+            ",\"userSex\":\"" + sex + '"' +
+            ",\"userSexPref\":\"" + sexPref + '"' +
             '}';
+    }
+
+    public String getUserId(){ return this.userId; }
+
+    public String getEmail() { return this.email; }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getTwitter() {
+        return twitter;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public String getSexPref() {
+        return sexPref;
     }
 }

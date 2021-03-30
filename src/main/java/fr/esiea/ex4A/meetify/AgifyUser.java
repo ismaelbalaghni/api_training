@@ -4,9 +4,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class AgifyUser {
 
+    public final String userId;
     public final String name;
-    public final int age;
-    public final int count;
+    public final Integer age;
+    public final Integer count;
     public final String country_id;
 
     public AgifyUser(@JsonProperty("name") String name, @JsonProperty("age") int age, @JsonProperty("count") int count, @JsonProperty("country_id") String country_id) {
@@ -14,6 +15,7 @@ public class AgifyUser {
         this.age = age;
         this.count = count;
         this.country_id = country_id;
+        this.userId = name.concat(country_id);
     }
 
     public String getName() {
@@ -32,6 +34,6 @@ public class AgifyUser {
         return country_id;
     }
 
-
+    public String getUserId(){ return this.userId; }
 
 }
