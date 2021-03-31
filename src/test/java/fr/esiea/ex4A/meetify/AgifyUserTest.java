@@ -2,6 +2,7 @@ package fr.esiea.ex4A.meetify;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -52,5 +53,16 @@ class AgifyUserTest {
     void creating_a_new_agifyuser_with_a_country_should_give_the_same_country(String wantedCountry, String expectedCountry){
         AgifyUser agifyUser = new AgifyUser("test", 10, 100, wantedCountry);
         Assertions.assertThat(agifyUser.getCountry_id()).isEqualTo(expectedCountry);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+        "Marco, IT, MarcoIT",
+        "Karim, DZ, KarimDZ",
+        "Jean, FR, JeanFR"
+    })
+    void testUserId(String name, String country, String userId) {
+        AgifyUser agifyUser = new AgifyUser(name, 51, 144, country);
+        Assertions.assertThat(agifyUser.getUserId()).isEqualTo(userId);
     }
 }
